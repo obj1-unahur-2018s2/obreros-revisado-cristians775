@@ -1,15 +1,18 @@
-class Obreros{
+class Obrero{
 
-	var bLicencia=false
+	var licencia = false
 	
 	var aporteObra
 
-	method estaDeLicencia(condicion) {
-		bLicencia = condicion
+	method estaDeLicencia() {
+		licencia = true
 	}
 
-	method estaDeLicencia() {
-		return bLicencia
+	method noEstaDeLicencia() {
+		 licencia=false
+	}
+	method tieneLicencia(){
+		return licencia
 	}
 
 	method iniciarJornada(cant)
@@ -25,4 +28,3 @@ class Obreros{
 	}
 
 }
-

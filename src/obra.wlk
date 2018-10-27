@@ -19,7 +19,7 @@ class Obra {
 	}
 
 	method iniciarJornada() {
-		plantilla.filter({ empleado => !empleado.estaDeLicencia()}).forEach({ empleado => empleado.iniciarJornada(self)})
+	plantilla.filter({ empleado => !empleado.tieneLicencia()}).forEach({ empleado => empleado.iniciarJornada(self)})
 	}
 
 	method consumirLadrillos(cant) {
@@ -47,4 +47,3 @@ class Obra {
 	}
 
 }
-

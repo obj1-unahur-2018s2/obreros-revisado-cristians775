@@ -1,3 +1,4 @@
+
 import albanil.*
 import obreros.*
 import gasista.*
@@ -26,7 +27,7 @@ describe "TestObreros"{
 	}
 	test "Obreros trabajar"{
 		
-		albanil1.estaDeLicencia(true)
+		albanil1.estaDeLicencia()
 		obra.agregarObrero(albanil1)
 		obra.agregarObrero(albanil2)
 		obra.agregarObrero(gasista1)

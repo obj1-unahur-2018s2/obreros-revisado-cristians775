@@ -1,4 +1,5 @@
-class Plomero inherits Obreros{
+import obreros.*
+class Plomero inherits Obrero{
 	
 	var property metrosCanio=10
 	var property arandelas=30
@@ -7,7 +8,7 @@ class Plomero inherits Obreros{
 	override method iniciarJornada(obra){
 		obra.consumirMetrosDeCanio(metrosCanio)
 		obra.consumirArandelas(arandelas) 
-		self.aportaAlaObra(caniosColocados)
+		self.aporteAlaObra()(caniosColocados)
 		)
 	
 	

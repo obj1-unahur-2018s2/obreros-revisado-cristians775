@@ -1,5 +1,5 @@
-
-class Albanil inherits Obreros{
+import obreros.*
+class Albanil inherits Obrero{
 	
  var property cantLadrillos=100
  var property metrosColocados=3
@@ -16,6 +16,12 @@ override method iniciarJornada(obra){
 
 	
 	
+	
+	
+	
+	
+	
+}
 	
 	
 	

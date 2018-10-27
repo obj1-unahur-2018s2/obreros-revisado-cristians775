@@ -1,4 +1,5 @@
-class Electricista inherits Obreros{
+import obreros.*
+class Electricista inherits Obrero{
 	
 	var property metrosCable=4
 	var property cintaAisladora=1

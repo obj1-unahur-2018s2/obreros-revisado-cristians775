@@ -1,4 +1,5 @@
-class Gasista inherits Obreros{
+import obreros.*
+class Gasista inherits Obrero{
 	
 	var property metrosCanios=3
 	var property fosforos=20
