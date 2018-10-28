@@ -1,5 +1,6 @@
 import obreros.*
 import albanil.*
+import uocra.*
 class Obra {
 
 	var property ladrillos
@@ -8,20 +9,52 @@ class Obra {
 	var property cinta
 	var property fosforos
 	var property arandelas
+	var property dineroDeLaObra
 	var plantilla = []
-
+    var sindicato=uocra
 	method agregarObrero(obrero) {
+		
 		plantilla.add(obrero)
+		obrero.sindicato(sindicato)
+		obrero.obra(self)
+		sindicato.agregarObrero(obrero)
+		
 	}
 
 	method quitarObrero(obrero) {
+		if(!obrero.tieneLicencia()){
 		plantilla.remove(obrero)
+			}else{
+				
+				self.error("Las leyes laborales están para respetarse - licencia implica estabilidad laboral")
+			}
+		
 	}
 
 	method iniciarJornada() {
-	plantilla.filter({ empleado => !empleado.tieneLicencia()}).forEach({ empleado => empleado.iniciarJornada(self)})
+		if (plantilla.size()>0){
+		plantilla.filter({ empleado => !empleado.tieneLicencia()}).forEach({ empleado => empleado.iniciarJornada(self)})
+		}else{
+			
+			self.error("No hay obreros disponibles para trabajar")
+		}
 	}
-
+    
+    method estaEnLaPlantilla(obrero) {
+		return plantilla.contains(obrero)
+	}
+	method totalAdeudado(){
+		
+		return plantilla.sum({emp=>emp.cuantoDebeCobrar()})
+		
+	}
+    method registrarPago(){
+    	
+    	dineroDeLaObra-=self.totalAdeudado()
+    	plantilla.forEach({empleado=>empleado.cancelarJornales()})
+    	
+    	
+    }
 	method consumirLadrillos(cant) {
 		ladrillos = ladrillos - cant
 	}
@@ -29,6 +62,8 @@ class Obra {
 	method consumirMetrosDeCanio(cant) {
 		metrosDeCanio = metrosDeCanio - cant
 	}
+
+	
 
 	method consumirMetrosDeCable(cant) {
 		metrosDeCable = metrosDeCable - cant
@@ -45,5 +80,6 @@ class Obra {
 	method consumirArandelas(cant) {
 		arandelas = arandelas - cant
 	}
-
+    
 }
+

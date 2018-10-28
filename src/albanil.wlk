@@ -9,10 +9,14 @@ override method iniciarJornada(obra){
 	
 	obra.consumirLadrillos(cantLadrillos)
 	self.aporteAlaObra(metrosColocados)
-	
+    self.jornalTrabajado()
 	
 } 
-
+override method cuantoDebeCobrar(){
+	
+	return super() * sindicato.jornalAlbanil()
+	
+}
 
 	
 	

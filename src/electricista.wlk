@@ -9,9 +9,14 @@ class Electricista inherits Obrero{
 		obra.consumirMetrosDeCable(metrosCable)
 		obra.consumirCinta(cintaAisladora)
 		self.aporteAlaObra(metrosColocados)
-	
+	   	self.jornalTrabajado()
 	
 } 
+override method cuantoDebeCobrar(){
+	
+	return super() * sindicato.jornalElectricista()
+	
+}
 	
 	
 	

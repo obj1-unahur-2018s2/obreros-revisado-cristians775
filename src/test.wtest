@@ -9,11 +9,14 @@ import obra.*
 describe "TestObreros"{
 	
 	const obra=new Obra()
+	const obraCasaLombardi=new Obra()
+	const obraCasaPepita=new Obra()
 	const albanil1=new Albanil()
 	const albanil2=new Albanil()
 	const gasista1=new Gasista()
 	const gasista2=new Gasista()
 	const plomero= new Plomero()
+	
 	fixture{
 		
 		
@@ -21,27 +24,58 @@ describe "TestObreros"{
 		obra.metrosDeCanio(400)
 		obra.fosforos(8000)
 		obra.arandelas(500)
-		
+		albanil1.estaDeLicencia()
 		
 		
 	}
 	test "Obreros trabajar"{
 		
-		albanil1.estaDeLicencia()
+		
 		obra.agregarObrero(albanil1)
 		obra.agregarObrero(albanil2)
 		obra.agregarObrero(gasista1)
 		obra.agregarObrero(gasista2)
 		obra.agregarObrero(plomero)
+		
 		obra.iniciarJornada()
 		
 		assert.equals(900,obra.ladrillos())
 		assert.equals(384,obra.metrosDeCanio())
 		assert.equals(7960,obra.fosforos())
 		assert.equals(470,obra.arandelas())
+
+		albanil1.noEstaDeLicencia()
+		plomero.estaDeLicencia()
+		obra.iniciarJornada()
+		obra.dineroDeLaObra(100000)
 		
+		assert.equals(4000,albanil2.cuantoDebeCobrar())
+		assert.equals(2000,albanil1.cuantoDebeCobrar())
+		assert.equals(6000,gasista1.cuantoDebeCobrar())
+		assert.equals(6000,gasista2.cuantoDebeCobrar())
+		assert.equals(3000,plomero.cuantoDebeCobrar())
+		assert.equals(21000,obra.totalAdeudado())
+		obra.registrarPago()
+		assert.equals(0,albanil2.cuantoDebeCobrar())
+		assert.equals(0,albanil1.cuantoDebeCobrar())
+		assert.equals(0,gasista1.cuantoDebeCobrar())
+		assert.equals(0,gasista2.cuantoDebeCobrar())
+		assert.equals(0,plomero.cuantoDebeCobrar())
+	    assert.equals(0,obra.totalAdeudado())
+		 assert.equals(79000,obra.dineroDeLaObra())
 		
-		
-	}
+		}
+		test "Coleccion de los obreros"{
+			
+			obraCasaLombardi.agregarObrero(plomero)
+			obraCasaPepita.agregarObrero(plomero)
+			assert.that(plomero.pasoPor(obraCasaLombardi))
+			assert.that(plomero.pasoPor(obraCasaLombardi))
+			
+			
+			
+			
+			
+		}
 	
 }

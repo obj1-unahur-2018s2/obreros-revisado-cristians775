@@ -10,8 +10,13 @@ class Gasista inherits Obrero{
 		obra.consumirMetrosDeCanio(metrosCanios)
 		obra.consumirFosforos(fosforos)
 		self.aporteAlaObra(caniosColocados)
-	
+	   	self.jornalTrabajado() 
 	
 } 
+override method cuantoDebeCobrar(){
+	
+	return super() * sindicato.jornalGasista()
+	
+}
 	
 }
