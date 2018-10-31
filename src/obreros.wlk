@@ -1,10 +1,11 @@
 class Obrero {
 
 	var licencia = false
-	var _jornales=0
+	var _jornales = 0
 	var aporteObra
-    var property  sindicato=null
-    var obraCol=[]
+	var property sindicato = null
+	var obraCol = []
+
 	method estaDeLicencia() {
 		licencia = true
 	}
@@ -24,9 +25,7 @@ class Obrero {
 	}
 
 	method jornalTrabajado() {
-		
 		_jornales += 1
-		
 	}
 
 	method jornalesAdeudados() {
@@ -36,26 +35,24 @@ class Obrero {
 	method aporteAlaObra() {
 		return aporteObra
 	}
-	
-	method cuantoDebeCobrar(){
-		
+
+	method cuantoDebeCobrar() {
 		return self.jornalesAdeudados()
+	}
+
+	method cancelarJornales() {
+		_jornales = 0
+	;
 		
 	}
-	method cancelarJornales(){
-		
-		_jornales=0;
-		
-	}
-	method obra(obra){
-		
+
+	method obra(obra) {
 		obraCol.add(obra)
-		
 	}
-   method pasoPor(obra){
-   	
-   	return obraCol.contains(obra)
-   	 
-   }
+
+	method pasoPor(obra) {
+		return obraCol.contains(obra)
+	}
+
 }
 

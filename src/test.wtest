@@ -77,5 +77,22 @@ describe "TestObreros"{
 			
 			
 		}
+		test "Test error si no hay obreros disponibles"{
+			
+			assert.throwsException{obra.inciarJornada()}
+			
+		}
+		test "Test error si hay que echar a un obrero que esta de licencia"{
+			
+		
+			
+			
+			obra.agregarObrero(albanil1)
+			albanil1.estaDeLicencia()
+		
+			
+			assert.throwsException{obra.quitarObrero(albanil1)}
+			
+		}
 	
 }

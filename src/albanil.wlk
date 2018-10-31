@@ -31,4 +31,3 @@ override method cuantoDebeCobrar(){
 	
 	
 	
-}
