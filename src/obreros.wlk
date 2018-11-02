@@ -3,7 +3,7 @@ class Obrero {
 	var licencia = false
 	var _jornales = 0
 	var aporteObra
-	var property sindicato = null
+	var property sindicato=null
 	var obraCol = []
 
 	method estaDeLicencia() {
@@ -42,7 +42,7 @@ class Obrero {
 
 	method cancelarJornales() {
 		_jornales = 0
-	;
+	
 		
 	}
 

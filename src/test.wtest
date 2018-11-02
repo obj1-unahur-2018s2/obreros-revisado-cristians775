@@ -25,17 +25,17 @@ describe "TestObreros"{
 		obra.fosforos(8000)
 		obra.arandelas(500)
 		albanil1.estaDeLicencia()
-		
-		
-	}
-	test "Obreros trabajar"{
-		
-		
 		obra.agregarObrero(albanil1)
 		obra.agregarObrero(albanil2)
 		obra.agregarObrero(gasista1)
 		obra.agregarObrero(gasista2)
 		obra.agregarObrero(plomero)
+		
+	}
+	test "Obreros trabajar"{
+		
+		
+		
 		
 		obra.iniciarJornada()
 		
@@ -43,7 +43,9 @@ describe "TestObreros"{
 		assert.equals(384,obra.metrosDeCanio())
 		assert.equals(7960,obra.fosforos())
 		assert.equals(470,obra.arandelas())
-
+}
+		test "Obra jornales"{
+		obra.iniciarJornada()
 		albanil1.noEstaDeLicencia()
 		plomero.estaDeLicencia()
 		obra.iniciarJornada()
@@ -62,7 +64,7 @@ describe "TestObreros"{
 		assert.equals(0,gasista2.cuantoDebeCobrar())
 		assert.equals(0,plomero.cuantoDebeCobrar())
 	    assert.equals(0,obra.totalAdeudado())
-		 assert.equals(79000,obra.dineroDeLaObra())
+	    assert.equals(79000,obra.dineroDeLaObra())
 		
 		}
 		test "Coleccion de los obreros"{

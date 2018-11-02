@@ -9,7 +9,7 @@ class Plomero inherits Obrero {
 	override method iniciarJornada(obra) {
 		obra.consumirMetrosDeCanio(metrosCanio)
 		obra.consumirArandelas(arandelas)
-		self.aporteAlaObra(caniosColocados)
+		obra.caniosAguaColocados(caniosColocados)
 		self.jornalTrabajado()
 	}
 

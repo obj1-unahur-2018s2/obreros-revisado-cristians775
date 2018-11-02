@@ -8,7 +8,7 @@ class Albanil inherits Obrero{
 override method iniciarJornada(obra){
 	
 	obra.consumirLadrillos(cantLadrillos)
-	self.aporteAlaObra(metrosColocados)
+	obra.metrosConstruidos(metrosColocados)
     self.jornalTrabajado()
 	
 } 

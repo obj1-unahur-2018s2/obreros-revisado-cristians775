@@ -13,7 +13,10 @@ class Obra {
 	var property dineroDeLaObra = 0
 	var plantilla = []
 	var sindicato = uocra
-
+	var _metrosConstruidos = 0
+	var _caniosAguaColocados = 0
+    var cantidadDePisos=0
+    
 	method agregarObrero(obrero) {
 		plantilla.add(obrero)
 		obrero.sindicato(sindicato)
@@ -77,6 +80,23 @@ class Obra {
 	method consumirArandelas(cant) {
 		arandelas = arandelas - cant
 	}
+
+	method metrosConstruidos(cant) {
+		_metrosConstruidos = cant
+	}
+
+	method metrosConstruidos() {
+		return _metrosConstruidos
+	}
+
+	method caniosAguaColocados(cant) {
+		_caniosAguaColocados = cant
+	}
+
+	method caniosAguaColocados() {
+		return _caniosAguaColocados
+	}
+	
 
 }
 
